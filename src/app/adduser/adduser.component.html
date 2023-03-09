@@ -1,0 +1,131 @@
+
+   <div class="row">
+        <div class="col-md-5 ">
+            <img src="./assets/img/r2.jpg"  height="700px" alt="">
+        </div>
+        <div class="col-md-7 ">
+          <form action="" [formGroup]="adduserform">
+            <div class="card m-3 bg-light">
+                <div class="row m-4"><h2 class="text-center text-danger">Registration Form</h2></div>
+                 <div class="row justify-content-center m-2">
+                    <div class="col-md-4">
+                        <label for="" class="form-label">First Name</label>
+                    </div>
+                    <div class="col-md-7">
+                      <input type="text" class="form-control" formControlName="fname">
+                      <small class="text-danger "
+                      *ngIf="!adduserform.get('fname')?.valid && adduserform.get('fname')?.touched ">Please Enter Valid
+                      first Name</small>  
+                    </div>
+                 </div>
+                 <div class="row justify-content-center m-2">
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Last Name</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" formControlName="lname">
+                        <small class="text-danger "
+                        *ngIf="!adduserform.get('lname')?.valid && adduserform.get('lname')?.touched ">Please Enter Valid
+                        last name</small>  
+                    </div>
+                 </div>
+                 <div class="row justify-content-center m-2">
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Email</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="email" class="form-control"  formControlName="email" (blur)="emailblur($event.target.value)">
+                        <small class="text-danger "
+                        *ngIf="!adduserform.get('email')?.valid && adduserform.get('email')?.touched ">Please Enter Valid
+                        email</small>  
+                    </div>
+                 </div>
+                 <div class="row justify-content-center m-2">
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Contact No</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="number" class="form-control" formControlName="phno">
+                        <small class="text-danger "
+                        *ngIf="!adduserform.get('phno')?.valid && adduserform.get('phno')?.touched ">Please Enter Valid
+                        phone no</small>  
+                    </div>
+                 </div>
+                 <div class="row justify-content-center m-2">
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Date Of Birth</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="date" class="form-control" formControlName="dob">
+                        <small class="text-danger "
+                        *ngIf="!adduserform.get('dob')?.valid && adduserform.get('dob')?.touched ">Please Enter Valid
+                        date of birth</small>  
+                    </div>
+                 </div>
+                 <div class="row justify-content-center m-2">
+                    <div class="col-md-4">
+                        <label for="" class="form-label" >Gender</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="radio" name="gender" class="form-check-input m-2" formControlName="gender" checked value="MALE"> 
+                        <label for="" class="form-check-label ">MALE</label>     
+                  
+                        <input type="radio" name="gender" class="form-check-input  m-2" formControlName="gender" checked value="FEMALE">    
+                        <label for="" class="form-check-label" >FEMALE</label>     
+                        <small class="text-danger "
+                        *ngIf="!adduserform.get('gender')?.valid && adduserform.get('gender')?.touched ">Please Enter Valid
+                        gender</small>  
+                    </div>
+                 </div>
+                 <div class="row justify-content-center m-2">
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Country</label>
+                    </div>
+                    <div class="col-md-7">
+                        <select class="form-select form-control" (change)="getstatedata($event.target.value)" aria-label="Default select example" name="countryId" formControlName="countryId">
+                            <option [value]="c.key" *ngFor="let c of allcountries|keyvalue">{{c.value}}</option>
+                          </select>               
+                          <small class="text-danger"
+                          *ngIf="!adduserform.get('countryId')?.valid && adduserform.get('countryId')?.touched ">Please Enter Valid
+                          country</small>  
+                        </div>
+                 </div>
+                 <div class="row justify-content-center m-2">
+                    <div class="col-md-4">
+                        <label for="" class="form-label">State</label>
+                    </div>
+                    <div class="col-md-7">
+                        <select class="form-select form-control" (change)="getcitydata($event.target.value)" aria-label="Default select example" name="stateId" formControlName="stateId">
+                         <option [value]="s.key" *ngFor="let s of allstates|keyvalue">{{s.value}}</option>
+                        
+                       </select>
+                       <small class="text-danger "
+                       *ngIf="!adduserform.get('stateId')?.valid && adduserform.get('stateId')?.touched ">Please Enter Valid
+                       state</small>  
+                    </div>
+                 <div class="row justify-content-center m-2">
+                    <div class="col-md-4">
+                        <label for="" class="form-label">CITY</label>
+                    </div>
+                    <div class="col-md-7">
+                        <select class="form-select form-control" aria-label="Default select example" name="cityId" formControlName="cityId">
+                            <option [value]="n.key" *ngFor="let n of allcities|keyvalue">{{n.value}}</option>
+    
+                          </select>                
+                          <small class="text-danger "
+                          *ngIf="!adduserform.get('cityId')?.valid && adduserform.get('cityId')?.touched ">Please Enter Valid
+                          city</small>  
+                        </div>
+                 </div>
+                 <div class="row justify-content-center m-2">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-7">
+                     <button type="button" class="btn btn-success m-2" (click)="Submit(adduserform)">Submit</button>
+                     <button type="button" class="btn btn-danger m-2" (click)="Reset(adduserform)">Reset</button>
+                 </div>
+              </div>
+            </div>
+     </div>
+    </form>
+</div>
+</div>

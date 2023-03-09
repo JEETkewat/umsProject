@@ -1,0 +1,56 @@
+
+    <div class="card">
+        <img src="./assets/img/forgot.jpg" alt="">
+        <div class="card-img-overlay">
+            <div class="card-body">
+                <form action="" [formGroup]="unlock">
+                    <div class="row justify-content-center m-2">
+                     <div class="col-md-6">
+                         <h1 class="text-center">UnLock Account</h1>
+                     </div>
+                    </div>
+                     <div class="row justify-content-center">
+                         <div class="col-md-8">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 m-1" >
+                                    <label for="" class="form-label">Email ID:</label>
+                                    <input type="email" class="form-control" formControlName="email" >
+                                    <small class="text-danger "
+                                    *ngIf="!unlock.get('email')?.valid && unlock.get('email')?.touched ">Please Enter Valid
+                                    email</small> 
+                                </div>
+                                <div class="col-md-4 m-1">
+                                    <label for="" class="form-label">Temperory Password:</label>
+                                    <input type="password" class="form-control" formControlName="tempPwd">
+                                    <small class="text-danger "
+                                    *ngIf="!unlock.get('tempPwd')?.valid && unlock.get('tempPwd')?.touched ">Please Enter Valid
+                                    temporary password</small> 
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 m-2">
+                                    <label for="" class="form-label">Choose New Password:</label>
+                                    <input type="password" class="form-control" formControlName="newPwd">
+                                    <small class="text-danger "
+                                    *ngIf="!unlock.get('newPwd')?.valid && unlock.get('newPwd')?.touched ">Please Enter Valid
+                                    new password</small> 
+                                </div>
+                                <div class="col-md-4 m-2">
+                                   <label for="" class="form-label">Confirm Password:</label>
+                                   <input type="password" class="form-control" formControlName="confirmPwd">
+                                   <small class="text-danger "
+                                   *ngIf="!unlock.get('confirmPwd')?.valid && unlock.get('confirmPwd')?.touched ">Please Enter Valid
+                                   confirm password</small> 
+                               </div>
+                            </div>
+                           <div class="row justify-content-center">
+                               <div class="col-md-2 m-2">
+                                   <button type="submit" class="btn btn-warning text-light" routerLink="/signin" (click)="submit(unlock)">Submit</button>
+                               </div>
+                           </div>
+                         </div>
+                     </div>                         
+                 </form>
+            </div>
+        </div>
+    </div>

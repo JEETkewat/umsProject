@@ -1,0 +1,13 @@
+.navbar-brand{
+    margin-left: 80px;
+    font-size: 32px;
+}
+.navbar-nav{
+    margin-right:30px;
+}
+.fa-cog{
+    font-size:32px;
+}
+button{
+    font-size:19px;
+}
